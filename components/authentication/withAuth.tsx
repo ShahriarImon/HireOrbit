@@ -4,9 +4,11 @@ import { redirect, usePathname, useRouter } from "next/navigation";
 import { useLayoutEffect } from "react";
 import { useAuth } from "./AuthProvider";
 
-const withAuth = (Component: any) => {
+import { ComponentType } from "react";
+
+const withAuth = (Component: ComponentType) => {
   interface WithAuthProps {
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   const AuthenticatedComponent: React.FC<WithAuthProps> = (props) => {
@@ -25,7 +27,7 @@ const withAuth = (Component: any) => {
           router.push("/dashboard");
         }
       }
-    }, [authInfo]);
+    }, [authInfo, pathname, router]);
 
     return <Component {...props} />;
   };

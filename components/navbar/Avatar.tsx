@@ -6,9 +6,9 @@ import { useAuth } from "../authentication/AuthProvider";
 
 const Avatar = () => {
   const authInfo = useAuth();
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLImageElement | null>(null);
 
-  const handleClick = (event: any) => {
+  const handleClick = (event: React.MouseEvent<HTMLImageElement>) => {
     setAnchorEl(event.currentTarget);
   };
 

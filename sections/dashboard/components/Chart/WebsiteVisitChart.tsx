@@ -6,13 +6,7 @@ import { Visits, VisitsStat } from "../../views/dashboard-view";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const WebsiteVisitChart = ({
-  filter,
-  visits,
-}: {
-  filter: string;
-  visits: Visits;
-}) => {
+const WebsiteVisitChart = ({ visits }: { filter: string; visits: Visits }) => {
   const orderedDays: (keyof VisitsStat)[] = [
     "monday",
     "tuesday",
@@ -41,7 +35,7 @@ const WebsiteVisitChart = ({
   // Chart options for Website Visits (Line Chart)
   const websiteVisitsOptions: ApexOptions = {
     chart: {
-      type: "bar" as "bar",
+      type: "bar" as const,
       height: 300,
       toolbar: {
         show: false, // Hide the menu button
@@ -70,7 +64,7 @@ const WebsiteVisitChart = ({
     },
     colors: ["#007867", "#FFAB00"],
     legend: {
-      position: "top" as "top",
+      position: "top" as const,
       horizontalAlign: "right",
 
       fontWeight: 550,

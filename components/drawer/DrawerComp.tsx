@@ -45,8 +45,9 @@ const DrawerComp = ({
         {[
           { text: "Dashboard", link: "/dashboard.svg", href: "/dashboard" },
           { text: "Onboarding", link: "/onBoarding.svg", href: "/onboarding" },
-        ].map((item, index) => (
+        ].map((item) => (
           <Link
+            key={item?.text}
             href={item?.href}
             style={{
               textDecoration: "none",

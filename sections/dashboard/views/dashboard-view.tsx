@@ -133,6 +133,8 @@ export default function DashboardView({ children }: { children: ReactNode }) {
           )}
         </Grid2>
       </Grid2>
+
+      {children}
     </Stack>
   );
 }

@@ -36,13 +36,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 //   offers_sent: OfferSentStat;
 // }
 
-const OfferSentChart = ({
-  filter,
-  visits,
-}: {
-  filter: string;
-  visits: Visits;
-}) => {
+const OfferSentChart = ({ visits }: { filter: string; visits: Visits }) => {
   const orderedDays: (keyof VisitsStat)[] = [
     "monday",
     "tuesday",
@@ -67,7 +61,7 @@ const OfferSentChart = ({
   // Chart options for Offers Sent (Bar Chart)
   const offersSentOptions: ApexOptions = {
     chart: {
-      type: "line" as "line",
+      type: "line",
       height: 300,
       toolbar: { show: false },
     },
@@ -87,7 +81,7 @@ const OfferSentChart = ({
       tickAmount: 5,
     },
     stroke: {
-      curve: "smooth" as "smooth", // Makes the line smooth
+      curve: "smooth", // Makes the line smooth
       width: 3,
     },
     colors: ["#000"], // Black line color
