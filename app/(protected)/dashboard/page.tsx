@@ -1,3 +1,4 @@
+import PrivateRoute from "@/components/authentication/privateRoute";
 import OfferTable from "@/sections/dashboard/components/offerTable/OfferTable";
 import dynamic from "next/dynamic";
 const DashboardView = dynamic(
@@ -7,7 +8,7 @@ const DashboardView = dynamic(
   // }
 );
 
-const Dashboard = () => {
+const Dashboard = async () => {
   return (
     <DashboardView>
       <OfferTable />
@@ -15,4 +16,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default PrivateRoute(Dashboard);

@@ -1,7 +1,6 @@
 "use client";
 import { Icon } from "@iconify/react";
 import { IconButton } from "@mui/material";
-import withAuth from "../authentication/withAuth";
 import { useNavDrawer } from "../context/NavDrawerProvider";
 
 const ResponsiveMenuButton = () => {
@@ -19,4 +18,5 @@ const ResponsiveMenuButton = () => {
   );
 };
 
-export default withAuth(ResponsiveMenuButton);
+export default ResponsiveMenuButton;
+// export default withAuth(ResponsiveMenuButton);

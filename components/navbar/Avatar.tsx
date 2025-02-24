@@ -13,9 +13,12 @@ const Avatar = () => {
   };
 
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = () => {
     authInfo.setAuthInfo({ isAuthed: false, token: "" });
     localStorage.removeItem("token");
-    setAnchorEl(null);
+    handleClose();
   };
 
   const open = Boolean(anchorEl);
@@ -53,11 +56,14 @@ const Avatar = () => {
         }}
         slotProps={{
           paper: {
-            sx: { mt: 0.5, ml: -0.7 }, // Moves the popover 30px down (since 1 mt = 8px, mt: 3 = 24px)
+            sx: {
+              mt: 0.5,
+              //  ml: -0.7
+            }, // Moves the popover 30px down (since 1 mt = 8px, mt: 3 = 24px)
           },
         }}
       >
-        <Button onClick={handleClose}>Logout</Button>
+        <Button onClick={handleLogout}>Logout</Button>
       </Popover>
     </Stack>
   );
